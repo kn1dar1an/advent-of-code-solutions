@@ -21,7 +21,7 @@ fn main() {
         Err(e) => println!("Error: {}", e)
     }
 
-    println!("\nTook: {} microseconds.", elapsed_time.as_micros());
+    println!("\nTotal: {}", format!("{:?}", elapsed_time));
 }
 
 pub fn configure(args: Vec<String>) -> configuration::Configuration {
