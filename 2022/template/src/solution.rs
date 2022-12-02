@@ -1,7 +1,7 @@
-use std::io::{BufRead};
+use std::io::BufRead;
 use crate::configuration::Configuration;
 
-pub fn run(config: Configuration) -> Option<String>{
+pub fn run(config: Configuration) -> Result<String, String>{
 
     if config.input_file_buffer.is_some() {
         for line in config.input_file_buffer.unwrap().lines() {
@@ -10,6 +10,6 @@ pub fn run(config: Configuration) -> Option<String>{
     } else {
         println!("Hello Small World!");
     }
-
-    Some(String::new())
+    
+    Ok(String::new())
 }

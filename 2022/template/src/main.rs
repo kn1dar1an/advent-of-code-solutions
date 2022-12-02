@@ -1,20 +1,26 @@
 mod configuration;
 mod solution;
 use std::fs::File;
-use std::io::{self, BufRead, BufReader};
+use std::io::BufReader;
 use std::{env, time::Instant};
 
 use configuration::Configuration;
-//use crate::configuration::Configuration;
+
 fn main() {
     let args: Vec<String> = env::args().collect::<Vec<String>>();
     let config: configuration::Configuration = configure(args);
     
     let now = Instant::now();
 
-    solution::run(config);
+    let result = solution::run(config);
 
     let elapsed_time = now.elapsed();
+
+    match result {
+        Ok(r) => println!("Result: {}", r),
+        Err(e) => println!("Error: {}", e)
+    }
+
     println!("\nTook: {} microseconds.", elapsed_time.as_micros());
 }
 
