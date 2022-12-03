@@ -40,6 +40,7 @@ fn split_round(str: String) -> Result<(char, char), String> {
 }
 
 // PART 1
+#[allow(dead_code)]
 fn play_pt1(oponent: char, player: char) -> i32 {
     let defeater: char = get_defeater(&oponent);
 
@@ -92,6 +93,7 @@ fn get_loser(play: &char) -> char  {
     }
 }
 
+#[allow(dead_code)]
 fn get_equivalent(play: &char) -> char {
     match play {
         'A' => 'X',
